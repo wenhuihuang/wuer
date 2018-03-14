@@ -1,0 +1,2 @@
+export const FETCH_TODO='FETCH_TODO';
+export const STATIC_ADD_TODO='STATIC_ADD_TODO';
