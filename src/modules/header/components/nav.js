@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import '../style/index.scss'
+import global from '../../../static/app-conf'
 
 export default class Nav extends React.Component {
 
@@ -10,26 +11,11 @@ export default class Nav extends React.Component {
     }
 
     render() {
-        const menu = [{
-            text:'职位',
-            url:'/job'
-        },{
-            text:'简历',
-            url:'/home'
-        },{
-            text:'公司',
-            url:''
-        },{
-            text:'培训',
-            url:''
-        },{
-            text:'资质',
-            url:''
-        }]
+      
         return (
             <ul className="navbar">
             {
-                menu.map(function (item,index) {
+                global.menus.map(function (item,index) {
                     return <li key={index}><Link to={item.url} >{item.text}</Link></li>
                 })
             }

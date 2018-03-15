@@ -1,15 +1,60 @@
+@import '../../../common/style/comm';
 .title {
-  width: 100%;
-  height: 80px;
-  background: #333333;
+  // width: 100%;
+  height: px2rem(94);
+  background: #fff;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  padding:0 px2rem(30);
+  a{
+    color:$color_0;
+    text-decoration: none;
+    @include font-dpr(13px);
+  }
   .logo{
     background-image: url('../../../common/images/logo.png');
-    background-size: contain;
+    background-size: 100%;
     background-repeat: no-repeat;
-    width: 200px;
-    height: 60px;
+    width: px2rem(168);
+    height: px2rem(69);
     margin-top: 15px;
     display: inline-block;
+  }
+  .title-addr{
+    flex:1.0;
+    display: flex;
+    justify-content: center;
+    .addr-text{
+      flex:1.0;
+      display:block;
+      text-align:right;
+      padding-right:px2rem(12);
+    }
+    
+  }
+  .title-right{
+    flex:1.0;
+    display:flex;
+    justify-content:flex-end;
+    align-content: space-between;
+    .publish-btn{
+      display:flex;
+      margin-right:px2rem(28);
+      align-items: center;
+      .icon{
+        @include icon(23,23,$comm_dir+"images/publish_icon.png");
+        margin-right:px2rem(8);
+      }
+    }
+    .me-btn{
+      display:flex;
+      align-items: center;
+      .icon{
+        @include icon(22,24,$comm_dir+"images/me_icon.png");
+        margin-right:px2rem(8);
+      }
+    }
   }
 }
 .navbar{
@@ -19,5 +64,51 @@
     height: 40px;
     margin: 0 20px;
     display: inline-block;
+  }
+}
+.dowm-arrows{
+  @include icon(19,10,$comm_dir+'images/down_arrow_icon.png');
+}
+.search{
+  display:flex;
+  padding:0 px2rem(60);
+  align-items:center;
+  .search-type{
+    width:px2rem(128);
+    height:px2rem(56);
+    display: flex;
+    align-items:center;
+    margin-right:px2rem(10);
+    .type{
+      display:block;
+      flex:1.0;
+      text-align:right;
+      padding-right:px2rem(10);
+    }
+  }
+  .search-key{
+    flex:1.0;
+    border-radius:px2rem(4);
+    background:#fff;
+    height:px2rem(56);
+    input[type='text']{
+      width:100%;
+      display:block;
+      height:100%;
+      box-sizing: border-box;
+      padding:0 px2rem(8);
+      border:none;
+      background:transparent;
+    }
+  }
+  .search-btn{
+    width:px2rem(90);
+    height:px2rem(56);
+    display: flex;
+    align-items:center;
+    margin-left:px2rem(10);
+    .icon{
+      @include icon(34,35,$comm_dir+'images/search_btn.png');
+    }
   }
 }

@@ -5,6 +5,12 @@ import { connect } from 'react-redux';
 import * as HomeAction from '../actions/index'
 import  * as globalAction from '../../index/actions/index'
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom'
+import Search from  '../components/search'
+import HotJob from '../components/hotJob'
+import global from '../../../static/app-conf'
+import '../style/index.scss'
+
 class HomeContainer extends React.Component {
 
     constructor(props) {
@@ -17,34 +23,43 @@ class HomeContainer extends React.Component {
     }
 
     render() {
-        let {todos}=this.props;
         return (
-                <div>
-                    <button onClick={this.addTodo.bind(this)}>ADD</button>
-                    <button onClick={this.fetchTodo.bind(this)}>Fetch</button>
-                    <h1>我是Home</h1>
-                    {
-                        todos.map(function (name,index) {
-                            return <div key={index}>Hello, {name}!</div>
+                <div className="home-container">
+                  <Search />
+                  <div className="home-menu">
+                  {
+                        global.menus.map(function (item,index) {
+                            return <Link className="item" key={index}  to={item.url} >
+                                <i className={"icon "+item.name+"-menu-icon"}></i>
+                                <span>{item.text}</span>
+                            </Link>
                         })
                     }
+                  </div>
+                  <HotJob list={this.props.list} />
+                  <button onClick={this.fetchTodo.bind(this)}>Fetch</button>
+                  <button onClick={this.fetchHotJob.bind(this)}>hotJob</button>
                 </div>
         )
     }
 
-    addTodo(){
-        let {addTodoAction} =this.props;
-        addTodoAction('用户固定输入的值');
-    }
-
     fetchTodo(){
-        let {fetchTodoAction} =this.props;
+        let {fetchTodoAction} =this.props.HomeAction;
         fetchTodoAction();
     }
+
+    fetchHotJob(){
+        let {fetchHotJobAction} =this.props.HomeAction;
+        fetchHotJobAction();
+    }
+
 }
 
 const mapStateToProps = state => {
-    return { todos: state.homeReducer.todos }
+    return { 
+        todos: state.homeReducer.todos,
+        list:state.homeReducer.list
+    }
 }
 const mapDispatchToProps = dispatch => {
     return {

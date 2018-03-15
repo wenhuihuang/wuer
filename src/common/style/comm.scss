@@ -1,9 +1,46 @@
-.common{
-  height:100px;
-  .common{
-    height:100px;
-    .common{
-      height:100px;
-    }
+$baseWidth:72; //设计稿宽度 因为根元素 /10,所以720/10=72  -- 字体等于dpr=1 的两倍
+$comm_dir: '../../../common/'; //公共静态资源路径
+$color_0:#000;
+$color_a:#333;
+$color_b:#666;
+$color_c:#999;
+/**px转rem
+*/
+
+@function px2rem($px) {
+  @return ($px/$baseWidth) * 1rem; //计算出相对根的比例
+}
+
+/**根据不同的dpr计算出字体大小
+*/
+
+@mixin font-dpr($size) {
+  //$size 为dpr=1时的值,为正常值
+  font-size: $size;
+  [data-dpr="2"] & {
+    font-size: $size * 2;
+  }
+  [data-dpr="3"] & {
+    font-size: $size * 3;
   }
 }
+
+.clearfix {
+  &:after {
+    display: block;
+    content: '';
+    clear: both;
+    height: 0;
+    visibility: hidden;
+  }
+}
+
+@mixin icon($w, $h, $url) {
+  display: block;
+  width: px2rem($w);
+  height: px2rem($h);
+  margin: auto;
+  background: url($url) no-repeat center center;
+  background-size: 100%;
+}
+

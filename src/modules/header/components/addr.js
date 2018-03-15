@@ -2,7 +2,10 @@ import React from 'react'
 class Addr extends React.Component{
     render(){
         return (
-            <div></div>
+            <div className="title-addr">
+                <span className="addr-text">广东省</span>
+                <i className="dowm-arrows"></i>
+            </div>
         )
     }
 }

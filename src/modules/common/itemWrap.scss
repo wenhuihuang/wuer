@@ -1,0 +1,18 @@
+@import '../../common/style/comm';
+.item-wrap {
+    .item-wrap-title {
+        display: flex;
+        flex-direction: row;
+        height:px2rem(75);
+        align-items:center;
+        border-bottom:1px solid $color_b;
+        .line-icon {
+            @include icon(9, 46, '../../common/images/item_wrap_icon.png');
+        }
+        .text {
+            flex: 1.0;
+            padding-left:px2rem(20);
+            @include font-dpr(15px);
+        }
+    }
+}

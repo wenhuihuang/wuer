@@ -7,12 +7,16 @@ import API from '../api/api'
 
 const FetchActions=[HomeActions.FETCH_TODO];
 
+//导入saga
+import fetchHotJob from './hotJob'
+
+
 function* fetchData(action) {
     let type=action.type;
     console.log('start action:'+type)
     try {
         console.log('=========Action RUN================')
-        const data = yield call(API.fetch,{name:'test'});
+        const data = yield call(API.fetch,{name:'test'}); //发起ajax请求 name为请求类型
         yield put({type: Success(type), text:data.text});
         console.log('=========Dispatch '+Success(type)+'================')
     } catch (error) {
@@ -29,6 +33,7 @@ function* staticData(action){
 function* watchFetchData() {
     //action 数组匹配、所有action type在数组中的action都会被监控
     yield takeEvery(FetchActions, fetchData);
+    yield takeEvery(HomeActions.FETCH_HOTJOB, fetchHotJob);
 }
 
 export default function* rootSaga() {

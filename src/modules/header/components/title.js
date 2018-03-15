@@ -16,14 +16,16 @@ export default class Title extends React.Component {
                 <div className="logo">
                 </div>
                 <Addr />
-                <Link to="/about" >
-                    <span></span>
-                    <span>发布</span>
-                </Link>
-                <Link to="/about" >
-                    <span></span>
-                    <span>我的</span>
-                </Link>
+                <div className="title-right">
+                    <Link to="/about" className="publish-btn">
+                        <span className="icon"></span>
+                        <span>发布</span>
+                    </Link>
+                    <Link to="/about" className="me-btn">
+                        <span className="icon"></span>
+                        <span>我的</span>
+                    </Link>
+                </div>
             </div>
         )
     }

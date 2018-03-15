@@ -38,15 +38,29 @@ var config = {
             },
             {
                 test: /\.css$/,
-                exclude: /node_modules|static/,
-                loader: 'style-loader!css-loader'
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use:[
+                        {
+                            loader: 'css-loader',
+                            options:{
+                                minimize: true //css压缩
+                            }
+                        }
+                    ]
+                })
             },
             {
 
                 test: /\.(scss|sass)$/,
                 exclude: /node_modules|static/,
                 use: ExtractTextPlugin.extract({
-                use:[ 'css-loader','sass-loader'],
+                use:[ {
+                    loader: 'css-loader',
+                    options:{
+                        minimize: true //css压缩
+                    }
+                },'sass-loader'],
                 fallback: 'style-loader',
                 })
             },

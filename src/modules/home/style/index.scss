@@ -1,0 +1,44 @@
+@import '../../../common/style/comm';
+.search{
+    height:px2rem(80);
+    background:#dbeedb;
+}
+.home-menu{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top:px2rem(48);
+    padding-bottom:px2rem(25);
+    .item{
+        display:flex;
+        flex-direction:column;
+        width:px2rem(124);
+        height:px2rem(160);
+        text-align: center;
+        margin: px2rem(15) px2rem(90/2);
+        text-decoration: none;
+        color:$color_a;
+        @include font-dpr(13px);
+        .icon{
+            display:block;
+        }
+        .job-menu-icon{
+            @include icon(94,94,$comm_dir+'images/job_menu_icon.png');
+        }
+        .resume-menu-icon{
+            @include icon(94,94,$comm_dir+'images/resume_menu_icon.png');
+        }
+        .company-menu-icon{
+            @include icon(94,94,$comm_dir+'images/company_menu_icon.png');
+        }
+        .train-menu-icon{
+            @include icon(94,94,$comm_dir+'images/train_menu_icon.png');
+        }
+        .zizhi-menu-icon{
+            @include icon(94,94,$comm_dir+'images/zizhi_menu_icon.png');
+        }
+        .news-menu-icon{
+            @include icon(94,94,$comm_dir+'images/news_menu_icon.png');
+        }
+    }
+}
