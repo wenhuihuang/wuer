@@ -10,23 +10,17 @@ class Header extends React.Component {
     constructor(props) {
         super(props);
     }
-componentWillMount(){
-    console.log('3333333333333')
-}
-    componentWillUpdate(){
-        console.log('changeIsMenuAction')
-    }
 
     render() {
         const { showMenu } = this.props
-        console.log( this.props.location)
+        console.log(this.props.location)
         return (
             <div>
                 <Title />
                 {
-                    showMenu?<Nav />:''
+                    showMenu ? <Nav /> : ''
                 }
-               
+
             </div>
         )
     }
