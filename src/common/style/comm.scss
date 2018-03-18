@@ -4,6 +4,7 @@ $color_0:#000;
 $color_a:#333;
 $color_b:#666;
 $color_c:#999;
+$green-color:#56bb37;
 /**px转rem
 */
 
@@ -25,6 +26,19 @@ $color_c:#999;
   }
 }
 
+/**根据不同的dpr计算出边框大小
+*/
+@mixin border-dpr($p,$size,$style,$color) {
+  //$size 为dpr=1时的值,为正常值
+  border-#{$p}: $size $style $color;
+  [data-dpr="2"] & {
+    border-#{$p}: $size / 2  $style $color;
+  }
+  [data-dpr="3"] & {
+    border-#{$p}: $size / 3  $style $color;
+  }
+}
+
 .clearfix {
   &:after {
     display: block;
@@ -43,4 +57,18 @@ $color_c:#999;
   background: url($url) no-repeat center center;
   background-size: 100%;
 }
+@mixin border-dashed($path){
+  background: url($path) center center repeat;
+}
 
+.app-wrapper{
+  position: relative;
+}
+//弹出框
+.g-popup{
+  position: absolute;
+  left:0;
+  right:0;
+  background:rgba(0,0,0, .34);
+  display: none;
+}

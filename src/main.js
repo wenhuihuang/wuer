@@ -18,7 +18,9 @@ import rootSaga from './saga'
 
 
 import { RoutesComponent } from './modules/router/index'
+//导入公共样式
 import './common/style/normalize.scss'
+import './common/style/reset.scss'
 import './common/style/comm.scss'
 //重新计算大小
 import './common/js/resetSize'
@@ -36,7 +38,7 @@ const finalCreateStore = compose(
 )(createStore);
 
 const store = finalCreateStore(RootReducer);
-
+sagaMiddleware.run(rootSaga)
 ReactDOM.render(
     <Provider store={store}>
         <Router>
@@ -46,4 +48,4 @@ ReactDOM.render(
     </Provider>
     , document.getElementById('test'));
 
-sagaMiddleware.run(rootSaga)
+

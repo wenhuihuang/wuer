@@ -2,6 +2,7 @@ import React from 'react';
 
 import Title from '../components/title'
 import Nav from '../components/nav'
+import  * as GlobalAction from '../../index/actions/index'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -11,9 +12,12 @@ class Header extends React.Component {
         super(props);
     }
 
+    componentDidMount(){
+       
+    }
+
     render() {
         const { showMenu } = this.props
-        console.log(this.props.location)
         return (
             <div>
                 <Title />
@@ -24,6 +28,7 @@ class Header extends React.Component {
             </div>
         )
     }
+
 }
 
 function mapStateToProps(state) {
@@ -32,4 +37,10 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(Header)
+const mapDispatchToProps = dispatch => {
+    return {
+        GlobalAction:bindActionCreators(GlobalAction, dispatch)
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Header)

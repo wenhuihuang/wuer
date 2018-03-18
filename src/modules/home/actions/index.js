@@ -5,6 +5,11 @@ export function fetchHotJobAction(){
         type:ActionTypes.FETCH_HOTJOB,
     }
 }
+export function fetchNewsAction(){
+    return {
+        type:ActionTypes.FETCH_NEWS
+    }
+}
 //以下为测试数据
 export function addTodoAction(text){
     return {

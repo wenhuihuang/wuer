@@ -1,28 +1,30 @@
-import {FETCH_HOTJOB,FETCH_TODO,STATIC_ADD_TODO} from '../actions/ActionTypes'
+import * as ActionTypes from '../actions/ActionTypes'
 import {Success,Failure} from '../../../global/tools'
 
 
-export default function homeReducer(state={list:[],todos:[]},action){
+export default function homeReducer(state={list:[],news:[],todos:[]},action){
     console.log(action)
     switch (action.type){
         //请求成功
-        case Success(FETCH_HOTJOB):
+        case Success(ActionTypes.FETCH_HOTJOB):
             return Object.assign({},{
                 ...state,
-                list:[
-                    ...state.list,
-                    action.list
-                ]
+                list:state.list.concat(action.list)
+            })
+        case Success(ActionTypes.FETCH_NEWS):
+            return Object.assign({},{
+                ...state,
+                news:state.news.concat(action.list)
             })
         //以下为测试数据
-        case STATIC_ADD_TODO:
+        case ActionTypes.STATIC_ADD_TODO:
             return Object.assign({},state,{
                 todos:[
                     ...state.todos,
                     action.text
                 ]
             })
-        case Success(FETCH_TODO):
+        case Success(ActionTypes.FETCH_TODO):
             return Object.assign({},state,{
                 todos:[
                     ...state.todos,

@@ -21,5 +21,6 @@ export default function* fetchHotJob(action) {
         console.log('=========Dispatch '+Failure(type)+'================')
         console.log(error)
     }
+    console.log('fetch-end')
 }
 

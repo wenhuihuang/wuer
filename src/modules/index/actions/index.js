@@ -7,3 +7,11 @@ export const changeIsMenuAction=(is)=>{
         is
     }
 }
+
+/**弹框 */
+export const changePopupAction=(popup)=>{
+    return{
+        type:ActionTypes.STATIC_CHANGE_POPUP,
+        popup
+    }
+}

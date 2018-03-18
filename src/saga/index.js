@@ -1,4 +1,4 @@
-import { call, put,takeEvery } from 'redux-saga/effects'
+import { call, put,takeEvery,takeLatest,fork } from 'redux-saga/effects'
 import * as HomeActions from '../modules/home/actions/ActionTypes'
 
 import {Success,Failure} from '../global/tools'
@@ -9,6 +9,7 @@ const FetchActions=[HomeActions.FETCH_TODO];
 
 //导入saga
 import fetchHotJob from './hotJob'
+import fetchHomeNews from './homeNews'
 
 
 function* fetchData(action) {
@@ -31,13 +32,16 @@ function* staticData(action){
 }
 
 function* watchFetchData() {
+    console.log('进入watch')
     //action 数组匹配、所有action type在数组中的action都会被监控
-    yield takeEvery(FetchActions, fetchData);
-    yield takeEvery(HomeActions.FETCH_HOTJOB, fetchHotJob);
+   yield takeEvery(FetchActions, fetchData);
+   yield takeLatest(HomeActions.FETCH_HOTJOB, fetchHotJob);
+   yield takeLatest(HomeActions.FETCH_NEWS, fetchHomeNews);
 }
 
 export default function* rootSaga() {
     yield [
         watchFetchData()
     ]
+    // yield fork (watchFetchData)
 }

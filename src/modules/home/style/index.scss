@@ -42,3 +42,170 @@
         }
     }
 }
+
+//热门职位
+.hotJob-list,.news-list{
+    .hotJob-item,.news-item{
+        display:flex;
+        padding:px2rem(20) 0;
+        position: relative;
+        .oneLevel-wrap{
+            width:px2rem(140);
+            color:$green-color;
+            @include font-dpr(13px);
+            padding-left:px2rem(20);
+        }
+        .rep{
+            padding-right:px2rem(20);
+        }
+        .twoLevel-wrap{
+            flex:1.0;
+            position: relative;
+            a{
+                color:$color_a;
+                text-decoration:none;
+                margin-right:px2rem(20);
+                @include font-dpr(13px);
+            }
+            .twoLevel-more{
+                // position: absolute;
+                // left:0;
+                // right:0;
+                margin-left:- px2rem(160);
+                margin-top:px2rem(20);
+                padding:px2rem(10);
+                background:#eee;
+                display: none;
+                flex-wrap:wrap;
+                &.show{
+                    display:flex;
+                }
+                a{
+                    margin:px2rem(10) px2rem(10);
+                    display: block;
+                }
+            }
+            &.more-btn:after{
+                position:absolute;
+                display: block;
+                content:'';
+                z-index: 1;
+                @include icon(19,10,$comm_dir+'images/down_arrow_icon.png');
+                background-size: px2rem(19);
+                right:px2rem(60);
+                //height:px2rem(68);
+                // width:px2rem(80);
+                top:px2rem(8);
+                pointer-events:none;
+            }
+        }
+    }
+    .border-dashed{
+        position: relative;
+        &:after{
+            height:1px;
+            display:block;
+            content:'';
+            width:100%;
+            position:absolute;
+            bottom:0;
+            transform:scaleY(.5);
+            transform-origin:0 0;
+            @include border-dashed($comm_dir+'images/dotted_icon.png');
+        }
+    }
+    
+}
+
+.news-list{
+    .news-item{
+        a{
+            text-decoration:none;
+            color:$color_a;
+            @include font-dpr(13px);
+            display: block;
+            padding:0 px2rem(20);
+        }
+    }
+}
+
+.more-news{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    width:px2rem(195);
+    height:px2rem(54);
+    background:$green-color;
+    color:#fff;
+    margin:0  auto;
+    @include font-dpr(13px);
+    text-decoration:none;
+
+}
+.more-news-wrap{
+    padding:px2rem(28) 0;
+}
+//搜索类型
+.search{
+    display:flex;
+    padding:0 px2rem(60);
+    align-items:center;
+    .search-type{
+      width:px2rem(128);
+      height:px2rem(56);
+      display: flex;
+      align-items:center;
+      margin-right:px2rem(10);
+      position: relative;   
+      .type{
+        display:block;
+        flex:1.0;
+        text-align:right;
+        padding-right:px2rem(10);
+      }
+    }
+    .search-key{
+      flex:1.0;
+      border-radius:px2rem(4);
+      background:#fff;
+      height:px2rem(56);
+      input[type='text']{
+        width:100%;
+        display:block;
+        height:100%;
+        box-sizing: border-box;
+        padding:0 px2rem(8);
+        border:none;
+        background:transparent;
+      }
+    }
+    .search-btn{
+      width:px2rem(90);
+      height:px2rem(56);
+      display: flex;
+      align-items:center;
+      margin-left:px2rem(10);
+      .icon{
+        @include icon(34,35,$comm_dir+'images/search_btn.png');
+      }
+    }
+  }
+
+.type-select{
+    position: absolute;
+    top:px2rem(56);
+    width: 100%;
+    background:#eee;
+    text-align:right;
+    padding-right:px2rem(30);
+    box-sizing: border-box;
+    padding:px2rem(15) px2rem(30) px2rem(15) 0 ;
+    display: none;
+    &.show{
+        display:block;
+    }
+    .option{
+        display:block;
+        padding:px2rem(15) 0;
+    }
+}
