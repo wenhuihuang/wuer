@@ -1,5 +1,6 @@
 import { call, put,takeEvery,takeLatest,fork } from 'redux-saga/effects'
 import * as HomeActions from '../modules/home/actions/ActionTypes'
+import * as ConditionActions from '../modules/common/actions/ActionTypes'
 
 import {Success,Failure} from '../global/tools'
 
@@ -10,6 +11,8 @@ const FetchActions=[HomeActions.FETCH_TODO];
 //导入saga
 import fetchHotJob from './hotJob'
 import fetchHomeNews from './homeNews'
+
+import * as Condition from './condition'
 
 
 function* fetchData(action) {
@@ -36,7 +39,8 @@ function* watchFetchData() {
     //action 数组匹配、所有action type在数组中的action都会被监控
    yield takeEvery(FetchActions, fetchData);
    yield takeLatest(HomeActions.FETCH_HOTJOB, fetchHotJob);
-   yield takeLatest(HomeActions.FETCH_NEWS, fetchHomeNews);
+   yield takeLatest(HomeActions.FETCH_NEWS, fetchHomeNews);Condition
+   yield takeLatest(ConditionActions.FETCH_CLASSIFY, Condition.fetchClassify);
 }
 
 export default function* rootSaga() {

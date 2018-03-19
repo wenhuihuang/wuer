@@ -1,20 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import  * as globalAction from '../../index/actions/index'
+import  * as GlobalAction from '../../index/actions/index'
+import * as CommonAction from '../../common/actions/index'
 import { bindActionCreators } from 'redux';
+import Condition from '../../common/condition'
+import '../style/index.scss'
 class JobContainer extends React.Component{
     constructor(props){
         super(props)
     }
 
-    componentWillMount(){
-        this.props.globalAction.changeIsMenuAction(true);
+    componentDidMount(){
+        this.props.GlobalAction.changeIsMenuAction(true);
+        //设置标题
+        this.props.GlobalAction.changeTitleAction('职位')
+
+        this.props.CommonAction.fetchClassifyAction();
     }
 
     render(){
         return(
             <div>
-                职位
+                <Condition />
             </div>
         )
     }
@@ -25,13 +32,15 @@ class JobContainer extends React.Component{
 const mapStateToProps = state => {
     return { 
         todos: state.homeReducer.todos,
-        list:state.homeReducer.list
+        list:state.homeReducer.list,
+        conditionReducer:state.conditionReducer
     }
 }
 const mapDispatchToProps = dispatch => {
     return {
-        // HomeAction:bindActionCreators(HomeAction, dispatch),
-        globalAction:bindActionCreators(globalAction, dispatch)
+        // HomeAction:bindActionCreators(HomeAction, dispatch), 
+        GlobalAction:bindActionCreators(GlobalAction, dispatch),
+        CommonAction:bindActionCreators(CommonAction, dispatch)
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(JobContainer)

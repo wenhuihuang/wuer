@@ -7,23 +7,23 @@ const global = {
     }, {
         text: '简历',
         name:'resume',
-        url: '/home'
+        url: '/resume'
     }, {
         text: '公司',
         name:'company',
-        url: ''
+        url: '/company'
     }, {
         text: '培训',
         name:'train',
-        url: ''
+        url: '/train'
     }, {
         text: '资质',
         name:'zizhi',
-        url: ''
+        url: '/zizhi'
     }, {
         text: '资讯',
         name:'news',
-        url: ''
+        url: '/news'
     }]
 }
 

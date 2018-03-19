@@ -60,15 +60,21 @@ $green-color:#56bb37;
 @mixin border-dashed($path){
   background: url($path) center center repeat;
 }
-
+/* html,body,#app,.app-wrapper{
+  min-height:100%;
+} */
 .app-wrapper{
   position: relative;
 }
 //弹出框
 .g-popup{
-  position: absolute;
+  position: fixed;
   left:0;
   right:0;
   background:rgba(0,0,0, .34);
   display: none;
+  
+}
+.pointer-events-none{
+  pointer-events: none;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import ReactDOM from 'react-dom'
 import { connect } from 'react-redux';
 
 import * as HomeAction from '../actions/index'
@@ -16,12 +16,20 @@ class HomeContainer extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state={
+            searchObj:{
+                type_code:1,
+                type_text:'招聘',
+                keywork:''
+            }
+        }
     }
 
-    componentWillMount(){
+    componentDidMount(){
         //没有菜单
         this.props.GlobalAction.changeIsMenuAction(false);
-
+        //设置标题
+        this.props.GlobalAction.changeTitleAction('首页')
         this.fetchHotJob()
         this.fetchNews()
     }
@@ -33,7 +41,7 @@ class HomeContainer extends React.Component {
     render() {
         return (
                 <div className="home-container">
-                  <Search  globalReducer={this.props.globalReducer} onClick={this.searchHandler.bind(this)}/>
+                  <Search  globalReducer={this.props.globalReducer} searchObj={this.state.searchObj} onClick={this.searchHandler.bind(this)} onInput={this.inputHandler.bind(this)} ref="search"/>
                   <div className="home-menu">
                   {
                         global.menus.map(function (item,index) {
@@ -70,19 +78,60 @@ class HomeContainer extends React.Component {
 
     //处理search组件事件
     searchHandler(e){
-        const className = e.target.className
-        alert(className)
-        console.log(this.props.globalReducer.showPop)
-        if(className === 'search-type' || className == 'type'){
+        const target = e.target
+        const className = target.className
+
+        const searchDOM = ReactDOM.findDOMNode(this.refs.search);
+
+        const top = searchDOM.offsetTop;
+        const h = searchDOM.offsetHeight
+        if(className === 'search-type' || className == 'type'){ //弹出收起
             this.props.GlobalAction.changePopupAction({
                 isShow:!this.props.globalReducer.popup.isShow,
+                isClose:true,
                 style:{
-                    top:'120px',
+                    top:top+h+'px',
                     bottom:0,
-                    display:this.props.globalReducer.popup.isShow?'block':'none'
+                    display:!this.props.globalReducer.popup.isShow?'block':'none'
                 }
             });
+        }else if(className === 'option'){ //选择
+            const value = target.getAttribute('value')
+            const text_arr = ['招聘','培训','资讯']
+            this.setState({
+                searchObj:{
+                    ...this.state.searchObj,
+                    type_code:value,
+                    type_text:text_arr[value]
+                }
+            })
+            this.props.GlobalAction.changePopupAction({
+                isShow:false,
+                isClose:true,
+                style:{
+                    top:0,
+                    bottom:0,
+                    display:'none'
+                }
+            });
+        }else if(className == 'search-btn'){ //搜索
+            if(this.state.searchObj.keywork == null || this.state.searchObj.keywork ==""){
+                alert('请输入关键词')
+            }else{
+                alert(this.state.searchObj.type_code+":"+this.state.searchObj.keywork)
+            }
+            
         }
+    }
+
+    inputHandler(e){
+        const target = e.target;
+        this.setState({
+            searchObj:{
+                ...this.state.searchObj,
+                keywork:target.value
+            }
+        })
     }
 
 }

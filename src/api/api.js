@@ -46,7 +46,7 @@ var API={
             url+="&"+p+"="+params[p]
         }
         if(type=='POST'){
-            config={}
+            config=params
         }
         return {url,config};
     }

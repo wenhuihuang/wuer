@@ -46,6 +46,6 @@ ReactDOM.render(
             {/* <DevTools /> */}
         </Router>
     </Provider>
-    , document.getElementById('test'));
+    , document.getElementById('app'));
 
 

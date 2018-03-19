@@ -2,10 +2,11 @@ import React from 'react';
 
 import Title from '../components/title'
 import Nav from '../components/nav'
+import DocTitle from '../components/docTitle'
 import  * as GlobalAction from '../../index/actions/index'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
+import '../style/index.scss'
 class Header extends React.Component {
 
     constructor(props) {
@@ -20,6 +21,7 @@ class Header extends React.Component {
         const { showMenu } = this.props
         return (
             <div>
+                <DocTitle title={this.props.globalReducer.title}/>
                 <Title />
                 {
                     showMenu ? <Nav /> : ''
@@ -33,6 +35,7 @@ class Header extends React.Component {
 
 function mapStateToProps(state) {
     return {
+        globalReducer:state.globalReducer,
         showMenu: state.globalReducer.showMenu
     }
 }

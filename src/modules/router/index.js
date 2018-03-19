@@ -4,6 +4,11 @@ import IndexComponent from '../index/container/index'
 import HomeContainer from '../home/container/index'
 import AboutContainer from '../about/container/index'
 import JobContainer from '../job/container/index'
+import CompanyContainer from '../company/container/index'
+import NewsContainer from '../news/container/index'
+import ResumeContainer from '../resume/container/index'
+import TrainContainer from '../train/container/index'
+import ZizhiContainer from '../zizhi/container/index'
 import NoMatch from '../common/noMatch'
 
 
@@ -16,6 +21,11 @@ export const RoutesComponent = (
             <Route path="/home" component={HomeContainer} />
             <Route path="/about" component={AboutContainer} />
             <Route path="/job" component={JobContainer} />
+            <Route path="/company" component={CompanyContainer} />
+            <Route path="/news" component={NewsContainer} />
+            <Route path="/resume" component={ResumeContainer} />
+            <Route path="/train" component={TrainContainer} />
+            <Route path="/zizhi" component={ZizhiContainer} />
             <Route component={NoMatch} />
         </Switch>
     </IndexComponent>

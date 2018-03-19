@@ -150,13 +150,14 @@
     display:flex;
     padding:0 px2rem(60);
     align-items:center;
+    position: relative;
     .search-type{
       width:px2rem(128);
       height:px2rem(56);
       display: flex;
       align-items:center;
       margin-right:px2rem(10);
-      position: relative;   
+      position: static;   
       .type{
         display:block;
         flex:1.0;
@@ -193,19 +194,24 @@
 
 .type-select{
     position: absolute;
-    top:px2rem(56);
-    width: 100%;
-    background:#eee;
+    top:px2rem(80);
+    // width: 100%;
+    left:0;
+    right:0;
+    background:#fff;
     text-align:right;
     padding-right:px2rem(30);
     box-sizing: border-box;
-    padding:px2rem(15) px2rem(30) px2rem(15) 0 ;
+    padding:px2rem(15) 0 px2rem(15) 0 ;
     display: none;
+    z-index:10;
+    color:$color_a;
     &.show{
         display:block;
     }
     .option{
         display:block;
-        padding:px2rem(15) 0;
+        text-align:center;
+        padding:px2rem(18) 0;
     }
 }

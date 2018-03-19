@@ -13,8 +13,9 @@ export default class Title extends React.Component {
     render() {
         return (
             <div className="title">
-                <div className="logo">
-                </div>
+                <Link to="/home">
+                    <div className="logo" />
+                </Link>
                 <Addr />
                 <div className="title-right">
                     <Link to="/about" className="publish-btn">

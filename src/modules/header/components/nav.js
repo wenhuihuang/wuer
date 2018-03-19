@@ -1,7 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link,NavLink  } from 'react-router-dom'
 
-import '../style/index.scss'
+
 import global from '../../../static/app-conf'
 
 export default class Nav extends React.Component {
@@ -16,7 +16,7 @@ export default class Nav extends React.Component {
             <ul className="navbar">
             {
                 global.menus.map(function (item,index) {
-                    return <li key={index}><Link to={item.url} >{item.text}</Link></li>
+                    return <li key={index} className="nav-item"><NavLink to={item.url} >{item.text}</NavLink></li>
                 })
             }
 

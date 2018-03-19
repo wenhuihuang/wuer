@@ -1,0 +1,56 @@
+@import '../../common/style/comm';
+.condition{
+    display:flex;
+    height:px2rem(68);
+    border-bottom:1px solid $color_c;
+    position: relative;
+    z-index:10;
+    &-item{
+        flex:1.0;
+        display:flex;
+        align-items:center;
+        justify-content: center;
+        height:100%;
+       
+        .dowm-arrows{
+            margin: auto 0;
+            margin-left:px2rem(10);
+        }
+        &:not(:last-child) .condition-input:after{
+            display:block;
+            content:'';
+            height:px2rem(42);
+            width:1px;
+            background:$color_c;
+            position:absolute;
+            right:0;
+        }
+    }
+    .condition-input{
+        height:100%;
+        width:100%;
+        position: relative;
+        display: flex;
+        align-items:center;
+        justify-content: center;
+       
+    }
+    .condition-select{
+        position: absolute;
+        top:px2rem(68);
+        left:0;
+        right:0;
+        display: none;
+        &.show{
+            display: block;
+        }
+        .condition-option{
+            height:px2rem(68);
+            display:flex;
+            align-items:center;
+            box-sizing: border-box;
+            padding-left:px2rem(40);
+            border-bottom:1px solid $color_c;
+        }
+    }
+}

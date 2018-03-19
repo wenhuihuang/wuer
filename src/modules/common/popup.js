@@ -8,15 +8,19 @@ class Popup extends React.Component{
             if(this.props.popup.isShow)
             {
                 return <div className="g-popup" style={this.props.popup.style} onClick={this.hide.bind(this)}>Popup</div>
+            }else{
+                return  <div></div>
             }
-            return  <div></div>
+            
     }
 
     hide(){
         if(this.props.popup.isClose){
             this.props.GlobalAction.changePopupAction({
-                isShow:false
-                //没写完
+                isShow:false,
+                style:{
+                    display:'none'
+                }
             })
         }
     }

@@ -15,3 +15,11 @@ export const changePopupAction=(popup)=>{
         popup
     }
 }
+
+/**修改标题 */
+export const changeTitleAction=(title)=>{
+    return {
+        type:ActionTypes.STATIC_CHANGE_TITLE,
+        title
+    }
+}
