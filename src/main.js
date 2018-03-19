@@ -41,10 +41,10 @@ const store = finalCreateStore(RootReducer);
 sagaMiddleware.run(rootSaga)
 ReactDOM.render(
     <Provider store={store}>
-        <Router>
+        <HashRouter>
             {RoutesComponent}
             {/* <DevTools /> */}
-        </Router>
+        </HashRouter>
     </Provider>
     , document.getElementById('app'));
 

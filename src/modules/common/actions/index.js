@@ -5,3 +5,8 @@ export function fetchClassifyAction(){
         type:ActionTypes.FETCH_CLASSIFY,
     }
 }
+export function fetchMajorAction(){
+    return{
+        type:ActionTypes.FETCH_MAJOR,
+    }
+}

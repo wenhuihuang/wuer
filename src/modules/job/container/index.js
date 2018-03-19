@@ -18,6 +18,22 @@ class JobContainer extends React.Component{
         this.props.CommonAction.fetchClassifyAction();
     }
 
+    componentDidUpdate(){
+        console.log(this.props.match.params)
+
+         /**设置全局弹框 **/
+         this.props.GlobalAction.changePopupAction({
+            isShow:false,
+            isClose:true,
+            style:{
+                top:0,
+                bottom:0,
+                display:'none'
+            }
+        });
+        /**设置全局弹框结束 **/
+    }
+
     render(){
         return(
             <div>

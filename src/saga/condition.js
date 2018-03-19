@@ -23,3 +23,20 @@ export function* fetchClassify(action) {
     console.log('fetch-end')
 }
 
+export function* fetchMajor(action) {
+    let type=action.type;
+    console.log('start action:'+type)
+    try {
+        console.log('=========请求专业================')
+        const data = yield call(API.fetch,{name:'major'}); //发起ajax请求 name为请求类型
+        console.log(data)
+        yield put({type: Success(type), list:data.data});
+        console.log('=========Dispatch '+Success(type)+'================')
+    } catch (error) {
+        yield put({type: Failure(type), error});
+        console.log('=========Dispatch '+Failure(type)+'================')
+        console.log(error)
+    }
+    console.log('fetch-end')
+}
+

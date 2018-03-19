@@ -8,6 +8,7 @@ var URLType={
     homeNews:'mock/homeNews.json', //首页最新资讯
     globalSearch:'',//首页全局搜索
     classify:'mock/classify.json', //分类
+    major:'mock/major.json', //专业
     format:(name)=>{
         return URLType.domain.host+URLType[name];
     }

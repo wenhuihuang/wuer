@@ -7,7 +7,7 @@ class Popup extends React.Component{
         
             if(this.props.popup.isShow)
             {
-                return <div className="g-popup" style={this.props.popup.style} onClick={this.hide.bind(this)}>Popup</div>
+                return <div className="g-popup" style={this.props.popup.style} onClick={this.hide.bind(this)}></div>
             }else{
                 return  <div></div>
             }

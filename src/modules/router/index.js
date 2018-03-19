@@ -13,14 +13,13 @@ import NoMatch from '../common/noMatch'
 
 
 
-
 export const RoutesComponent = (
     <IndexComponent>
         <Switch>
             <Route exact path="/" component={HomeContainer}/>
             <Route path="/home" component={HomeContainer} />
             <Route path="/about" component={AboutContainer} />
-            <Route path="/job" component={JobContainer} />
+            <Route path="/job/:classify?/:major?/:province?/:city?" component={JobContainer} />
             <Route path="/company" component={CompanyContainer} />
             <Route path="/news" component={NewsContainer} />
             <Route path="/resume" component={ResumeContainer} />

@@ -10,6 +10,11 @@ export default function conditionReducer(state={classify:[],major:[],province:[]
                 ...state,
                 classify:action.list
             })
+        case Success(ActionTypes.FETCH_MAJOR):
+            return Object.assign({},{
+                ...state,
+                major:action.list
+            })
         default :
             return state;
     }
