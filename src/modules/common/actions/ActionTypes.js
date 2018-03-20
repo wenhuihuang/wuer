@@ -1,2 +1,9 @@
 export const FETCH_CLASSIFY="FETCH_CLASSIFY"; //获取分类
 export const FETCH_MAJOR="FETCH_MAJOR"; //获取专业
+export const FETCH_PROVINCE="FETCH_PROVINCE"; //获取省份
+export const FETCH_CITY="FETCH_CITY"; //获取城市
+
+export const STATIC_CHANGE_CURRENT='STATIC_CHANGE_CURRENT'
+
+export const STATIC_CLEAR_MAJOR='STATIC_CLEAR_MAJOR' //清空专业
+export const STATIC_CLEAR_CITY='STATIC_CLEAR_CITY' //清空城市

@@ -2,8 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import  * as GlobalAction from '../../index/actions/index'
 import * as CommonAction from '../../common/actions/index'
+import * as JobAction from '../../job/actions/index'
 import { bindActionCreators } from 'redux';
 import Condition from '../../common/condition'
+import List from '../components/list'
 import '../style/index.scss'
 class JobContainer extends React.Component{
     constructor(props){
@@ -15,7 +17,10 @@ class JobContainer extends React.Component{
         //设置标题
         this.props.GlobalAction.changeTitleAction('职位')
 
+        this.props.JobAction.fetchJobListAction()
         this.props.CommonAction.fetchClassifyAction();
+        this.props.CommonAction.fetchProvinceAction();
+
     }
 
     componentDidUpdate(){
@@ -38,6 +43,7 @@ class JobContainer extends React.Component{
         return(
             <div>
                 <Condition />
+                <List list={this.props.jobReducer.jobList} />
             </div>
         )
     }
@@ -49,14 +55,16 @@ const mapStateToProps = state => {
     return { 
         todos: state.homeReducer.todos,
         list:state.homeReducer.list,
-        conditionReducer:state.conditionReducer
+        conditionReducer:state.conditionReducer,
+        jobReducer:state.jobReducer
     }
 }
 const mapDispatchToProps = dispatch => {
     return {
         // HomeAction:bindActionCreators(HomeAction, dispatch), 
         GlobalAction:bindActionCreators(GlobalAction, dispatch),
-        CommonAction:bindActionCreators(CommonAction, dispatch)
+        CommonAction:bindActionCreators(CommonAction, dispatch),
+        JobAction:bindActionCreators(JobAction, dispatch),
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(JobContainer)

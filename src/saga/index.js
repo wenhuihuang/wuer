@@ -1,6 +1,7 @@
 import { call, put,takeEvery,takeLatest,fork } from 'redux-saga/effects'
 import * as HomeActions from '../modules/home/actions/ActionTypes'
 import * as ConditionActions from '../modules/common/actions/ActionTypes'
+import * as JobActions from '../modules/job/actions/ActionTypes'
 
 import {Success,Failure} from '../global/tools'
 
@@ -11,6 +12,7 @@ const FetchActions=[HomeActions.FETCH_TODO];
 //导入saga
 import fetchHotJob from './hotJob'
 import fetchHomeNews from './homeNews'
+import * as Job from './job'
 
 import * as Condition from './condition'
 
@@ -40,8 +42,14 @@ function* watchFetchData() {
    yield takeEvery(FetchActions, fetchData);
    yield takeLatest(HomeActions.FETCH_HOTJOB, fetchHotJob);
    yield takeLatest(HomeActions.FETCH_NEWS, fetchHomeNews);Condition
-   yield takeLatest(ConditionActions.FETCH_CLASSIFY, Condition.fetchClassify);
+   yield takeLatest(ConditionActions.FETCH_CLASSIFY, Condition.fetchClassify); //条件选择-分类
+   yield takeLatest(ConditionActions.FETCH_MAJOR, Condition.fetchMajor); //条件选择-专业major
+   yield takeLatest(ConditionActions.FETCH_PROVINCE, Condition.fetchProvince); //条件选择-省份
+   yield takeLatest(ConditionActions.FETCH_CITY, Condition.fetchCity); //条件选择-城市
+   yield takeLatest(JobActions.FETCH_JOBLIST, Job.fetchJobList); //条件职位列表
+ 
 }
+
 
 export default function* rootSaga() {
     yield [

@@ -19,7 +19,8 @@ export const RoutesComponent = (
             <Route exact path="/" component={HomeContainer}/>
             <Route path="/home" component={HomeContainer} />
             <Route path="/about" component={AboutContainer} />
-            <Route path="/job/:classify?/:major?/:province?/:city?" component={JobContainer} />
+            {/* classify?/:major?/:province?/:city? */}
+            <Route path="/job/:params?" component={JobContainer} />
             <Route path="/company" component={CompanyContainer} />
             <Route path="/news" component={NewsContainer} />
             <Route path="/resume" component={ResumeContainer} />

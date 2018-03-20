@@ -9,6 +9,9 @@ var URLType={
     globalSearch:'',//首页全局搜索
     classify:'mock/classify.json', //分类
     major:'mock/major.json', //专业
+    province:'mock/province.json',//省份
+    city:'mock/city.json', //城市
+    jobList:'mock/jobList.json',//职位列表
     format:(name)=>{
         return URLType.domain.host+URLType[name];
     }
