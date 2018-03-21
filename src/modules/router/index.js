@@ -8,6 +8,7 @@ import JobDetailContainer from '../job/container/detail'
 import CompanyContainer from '../company/container/index'
 import NewsContainer from '../news/container/index'
 import ResumeContainer from '../resume/container/index'
+import ResumeDetailContainer from '../resume/container/detail'
 import TrainContainer from '../train/container/index'
 import ZizhiContainer from '../zizhi/container/index'
 import NoMatch from '../common/noMatch'
@@ -26,6 +27,7 @@ export const RoutesComponent = (
             <Route path="/company" component={CompanyContainer} />
             <Route path="/news" component={NewsContainer} />
             <Route path="/resume" component={ResumeContainer} />
+            <Route path="/resumeDetail/:id" component={ResumeDetailContainer} />
             <Route path="/train" component={TrainContainer} />
             <Route path="/zizhi" component={ZizhiContainer} />
             <Route component={NoMatch} />

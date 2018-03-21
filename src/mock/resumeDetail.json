@@ -1,0 +1,25 @@
+
+{
+    "code":200,
+    "data":
+        {
+            "id":1212,
+            "name":"小张",
+            "age":"28",
+            "auth":true,
+            "resumeType":"二级建造师-水利水电工程",
+            "addr":"广东-广州",
+            "tiem":"2018-02-31",
+            "zcqingkuan":"初始注册",
+            "price":"10万/1年",
+            "zhengshustate":"应聘中",
+            "edu":"本科",
+            "workYear":"5-8年",
+            "sex":"男",
+            "zhichen":"没有",
+            "use":"挂资质"
+        
+        }
+      
+    
+}

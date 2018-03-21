@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import Condition from '../../common/condition'
 import List from '../components/list'
 import '../style/index.scss'
-class JobDetailContainer extends React.Component{
+class ResumeDetailContainer extends React.Component{
     constructor(props){
         super(props)
     }
@@ -129,4 +129,4 @@ const mapDispatchToProps = dispatch => {
         JobAction:bindActionCreators(JobAction, dispatch),
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(JobDetailContainer)
+export default connect(mapStateToProps,mapDispatchToProps)(ResumeDetailContainer)

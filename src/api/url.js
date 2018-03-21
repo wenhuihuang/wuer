@@ -13,6 +13,8 @@ var URLType={
     city:'mock/city.json', //城市
     jobList:'mock/jobList.json',//职位列表
     jobDetail:'mock/jobDetail.json',//职位详情
+    resumeList:'mock/resumeList.json',//简历列表
+    resumeDetail:'mock/resumeDetail.json',//简历详情
     format:(name)=>{
         return URLType.domain.host+URLType[name];
     }

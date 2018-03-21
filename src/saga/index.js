@@ -2,6 +2,7 @@ import { call, put,takeEvery,takeLatest,fork } from 'redux-saga/effects'
 import * as HomeActions from '../modules/home/actions/ActionTypes'
 import * as ConditionActions from '../modules/common/actions/ActionTypes'
 import * as JobActions from '../modules/job/actions/ActionTypes'
+import * as ResumeActions from '../modules/resume/actions/ActionTypes'
 
 import {Success,Failure} from '../global/tools'
 
@@ -13,6 +14,7 @@ const FetchActions=[HomeActions.FETCH_TODO];
 import fetchHotJob from './hotJob'
 import fetchHomeNews from './homeNews'
 import * as Job from './job'
+import * as Resume from './resume'
 
 import * as Condition from './condition'
 
@@ -46,8 +48,10 @@ function* watchFetchData() {
    yield takeLatest(ConditionActions.FETCH_MAJOR, Condition.fetchMajor); //条件选择-专业major
    yield takeLatest(ConditionActions.FETCH_PROVINCE, Condition.fetchProvince); //条件选择-省份
    yield takeLatest(ConditionActions.FETCH_CITY, Condition.fetchCity); //条件选择-城市
-   yield takeLatest(JobActions.FETCH_JOBLIST, Job.fetchJobList); //条件职位列表
-   yield takeLatest(JobActions.FETCH_JOBDETAIL, Job.fetchJobDetail); //条件职位列表
+   yield takeLatest(JobActions.FETCH_JOBLIST, Job.fetchJobList); //职位列表
+   yield takeLatest(JobActions.FETCH_JOBDETAIL, Job.fetchJobDetail); //职位详情
+   yield takeLatest(ResumeActions.FETCH_RESUMELIST, Resume.fetchResumeList); //简历列表
+   yield takeLatest(ResumeActions.FETCH_RESUMEDETAIL, Resume.fetchResumeDetail); //职位详情
    
  
 }
