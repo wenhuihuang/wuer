@@ -5,3 +5,8 @@ export function fetchJobListAction(){
         type:ActionTypes.FETCH_JOBLIST,
     }
 }
+export function fetchJobDetailAction(){
+    return{
+        type:ActionTypes.FETCH_JOBDETAIL,
+    }
+}

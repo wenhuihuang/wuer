@@ -4,6 +4,7 @@ import IndexComponent from '../index/container/index'
 import HomeContainer from '../home/container/index'
 import AboutContainer from '../about/container/index'
 import JobContainer from '../job/container/index'
+import JobDetailContainer from '../job/container/detail'
 import CompanyContainer from '../company/container/index'
 import NewsContainer from '../news/container/index'
 import ResumeContainer from '../resume/container/index'
@@ -21,6 +22,7 @@ export const RoutesComponent = (
             <Route path="/about" component={AboutContainer} />
             {/* classify?/:major?/:province?/:city? */}
             <Route path="/job/:params?" component={JobContainer} />
+            <Route path="/jobDetail/:id" component={JobDetailContainer} />
             <Route path="/company" component={CompanyContainer} />
             <Route path="/news" component={NewsContainer} />
             <Route path="/resume" component={ResumeContainer} />

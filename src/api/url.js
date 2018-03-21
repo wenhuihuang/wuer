@@ -12,6 +12,7 @@ var URLType={
     province:'mock/province.json',//省份
     city:'mock/city.json', //城市
     jobList:'mock/jobList.json',//职位列表
+    jobDetail:'mock/jobDetail.json',//职位详情
     format:(name)=>{
         return URLType.domain.host+URLType[name];
     }

@@ -47,6 +47,8 @@ function* watchFetchData() {
    yield takeLatest(ConditionActions.FETCH_PROVINCE, Condition.fetchProvince); //条件选择-省份
    yield takeLatest(ConditionActions.FETCH_CITY, Condition.fetchCity); //条件选择-城市
    yield takeLatest(JobActions.FETCH_JOBLIST, Job.fetchJobList); //条件职位列表
+   yield takeLatest(JobActions.FETCH_JOBDETAIL, Job.fetchJobDetail); //条件职位列表
+   
  
 }
 
