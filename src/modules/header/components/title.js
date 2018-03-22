@@ -16,7 +16,7 @@ export default class Title extends React.Component {
                 <Link to="/home">
                     <div className="logo" />
                 </Link>
-                <Addr />
+                <Addr AddrHandler={this.props.AddrHandler} globalReducer={this.props.globalReducer}/>
                 <div className="title-right">
                     <Link to="/about" className="publish-btn">
                         <span className="icon"></span>

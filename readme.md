@@ -1,6 +1,4 @@
-### React脚手架项目
-
-基于`Webpack`、`ES6`、`Babel`、`Less`、`React`、`React-Router`、`Redux`、`React-Redux`、`Redux-Saga`创建的SPA前端脚手架项目！
+#主要使用 `Webpack`、`ES6`、`Babel`、`Sass`、`React`、`React-Router`、`Redux`、`React-Redux`、`Redux-Saga`
 
 使用:
 
@@ -47,7 +45,7 @@
          reducers
      API:
          对Fetch接口进行封装、操作
-         目前只封装了get请求
+         
 
 
 
