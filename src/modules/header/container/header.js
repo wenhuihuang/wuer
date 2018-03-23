@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React from 'react'
+import ReactDOM from 'react-dom'
 import Title from '../components/title'
 import Nav from '../components/nav'
 import DocTitle from '../components/docTitle'
@@ -22,7 +22,7 @@ class Header extends React.Component {
         return (
             <div>
                 <DocTitle title={this.props.globalReducer.title}/>
-                <Title AddrHandler={this.AddrHandler} globalReducer={this.props.globalReducer}/>
+                <Title AddrHandler={this.AddrHandler.bind(this)} globalReducer={this.props.globalReducer} ref="title" />
                 {
                     showMenu ? <Nav /> : ''
                 }
@@ -32,15 +32,14 @@ class Header extends React.Component {
     }
 //地址选择
 AddrHandler(e){
-    alert('3')
     const target = e.target
     const className = target.className
-
-    const searchDOM = ReactDOM.findDOMNode(this.refs.search);
-
-    const top = searchDOM.offsetTop;
-    const h = searchDOM.offsetHeight
-    if(className === 'search-type' || className == 'type'){ //弹出收起
+    alert(className)
+    const titleDOM = ReactDOM.findDOMNode(this.refs.title);
+    const typeSelect = titleDOM.querySelector('.type-select')
+    const top = typeSelect.offsetTop;
+    const h = typeSelect.offsetHeight
+    if(className === 'title-addr' || className == 'addr-text'){ //弹出收起
         this.props.GlobalAction.changePopupAction({
             isShow:!this.props.globalReducer.popup.isShow,
             isClose:true,

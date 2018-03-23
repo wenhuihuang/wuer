@@ -7,6 +7,7 @@ export default function globalReducer(state = {
     popup:{
         isShow:false,
         isClose:false,
+        type:"",
         style:{
             top:0,
             bottom:0
