@@ -7,20 +7,25 @@ import  * as GlobalAction from '../../index/actions/index'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import '../style/index.scss'
+import {
+    Route,
+    Redirect,
+    withRouter
+} from "react-router-dom";
 class Header extends React.Component {
 
     constructor(props) {
         super(props);
     }
 
-    componentDidMount(){
-       
+    componentDidUpdate(){
+       console.log('header-',this)
     }
 
     render() {
         const { showMenu } = this.props
         return (
-            <div>
+            <div className="header">
                 <DocTitle title={this.props.globalReducer.title}/>
                 <Title AddrHandler={this.AddrHandler.bind(this)} globalReducer={this.props.globalReducer} ref="title" />
                 {
@@ -37,12 +42,17 @@ AddrHandler(e){
     alert(className)
     const titleDOM = ReactDOM.findDOMNode(this.refs.title);
     const typeSelect = titleDOM.querySelector('.type-select')
-    const top = typeSelect.offsetTop;
-    const h = typeSelect.offsetHeight
+   
     if(className === 'title-addr' || className == 'addr-text'){ //弹出收起
+        if(!this.props.globalReducer.popup.isShow){
+            typeSelect.setAttribute('class','type-select show');
+        }
+        const top = typeSelect.offsetTop;
+        const h = typeSelect.offsetHeight
         this.props.GlobalAction.changePopupAction({
             isShow:!this.props.globalReducer.popup.isShow,
             isClose:true,
+            type:'headerAddr',
             style:{
                 top:top+h+'px',
                 bottom:0,
@@ -51,14 +61,18 @@ AddrHandler(e){
         });
     }else if(className === 'option'){ //选择
         const value = target.getAttribute('value')
-        const text_arr = ['招聘','培训','资讯']
-        this.setState({
-            searchObj:{
-                ...this.state.searchObj,
-                type_code:value,
-                type_text:text_arr[value]
+        const text = target.innerHTML;
+alert(text)
+        this.props.GlobalAction.changeAddrAction({
+            oneL:{
+                text:text,
+                value:value
+            },
+            twoL:{
+                text:text,
+                value:value
             }
-        })
+        });
         this.props.GlobalAction.changePopupAction({
             isShow:false,
             isClose:true,
@@ -94,4 +108,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Header)
+export default connect(mapStateToProps,mapDispatchToProps)(withRouter(Header))

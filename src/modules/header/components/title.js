@@ -22,9 +22,9 @@ export default class Title extends React.Component {
                         <span className="icon"></span>
                         <span>发布</span>
                     </Link>
-                    <Link to="/about" className="me-btn">
+                    <Link to="/login" className="me-btn">
                         <span className="icon"></span>
-                        <span>我的</span>
+                        <span>登录</span>
                     </Link>
                 </div>
             </div>

@@ -1,4 +1,12 @@
 @import '../../../common/style/comm';
+.header{
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  background:#fff;
+  z-index: 12;
+}
 .title {
   // width: 100%;
   height: px2rem(94);
@@ -26,7 +34,24 @@
     flex:1.0;
     display: flex;
     justify-content: center;
-    
+    //选择地址
+    .type-select{
+      height:px2rem(400);
+      &.show{
+        display: flex;
+      }
+      .addr-left{
+        flex:1.0;
+        height:100%;
+        overflow: auto;
+        border-right:1px solid $color_c;
+      }
+      .addr-right{
+        flex:1.0;
+        height:100%;
+        overflow: auto;
+      }
+    }
     .addr-text{
       flex:1.0;
       display:block;

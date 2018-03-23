@@ -8,7 +8,7 @@ const global = {
         text: '简历',
         name:'resume',
         url: '/resume'
-    }, {
+    }, /* {
         text: '公司',
         name:'company',
         url: '/company'
@@ -16,7 +16,7 @@ const global = {
         text: '培训',
         name:'train',
         url: '/train'
-    }, {
+    },  */{
         text: '资质',
         name:'zizhi',
         url: '/zizhi'

@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import Condition from '../../common/condition'
 import List from '../components/list'
 import '../style/index.scss'
-class JobContainer extends React.Component{
+class LoginContainer extends React.Component{
     constructor(props){
         super(props)
     }
@@ -15,11 +15,8 @@ class JobContainer extends React.Component{
     componentDidMount(){
         this.props.GlobalAction.changeIsMenuAction(true);
         //设置标题
-        this.props.GlobalAction.changeTitleAction('职位')
+        this.props.GlobalAction.changeTitleAction('登录')
 
-        this.props.JobAction.fetchJobListAction()
-        this.props.CommonAction.fetchClassifyAction();
-        this.props.CommonAction.fetchProvinceAction();
 
     }
 
@@ -41,9 +38,8 @@ class JobContainer extends React.Component{
 
     render(){
         return(
-            <div className="inner-body">
-                <Condition />
-                <List list={this.props.jobReducer.jobList} />
+            <div className="">
+                用户登录
             </div>
         )
     }
@@ -53,18 +49,13 @@ class JobContainer extends React.Component{
 
 const mapStateToProps = state => {
     return { 
-        todos: state.homeReducer.todos,
-        list:state.homeReducer.list,
-        conditionReducer:state.conditionReducer,
-        jobReducer:state.jobReducer
+        conditionReducer:state.conditionReducer
     }
 }
 const mapDispatchToProps = dispatch => {
     return {
-        // HomeAction:bindActionCreators(HomeAction, dispatch), 
         GlobalAction:bindActionCreators(GlobalAction, dispatch),
-        CommonAction:bindActionCreators(CommonAction, dispatch),
-        JobAction:bindActionCreators(JobAction, dispatch),
+        CommonAction:bindActionCreators(CommonAction, dispatch)
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(JobContainer)
+export default connect(mapStateToProps,mapDispatchToProps)(LoginContainer)

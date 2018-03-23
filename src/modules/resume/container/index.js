@@ -20,7 +20,7 @@ class ResumeContainer extends React.Component{
 
     render(){
         return(
-            <div>
+            <div className="inner-body">
                 <Condition />
                 <List list={this.props.resumeReducer.list}/>
             </div>

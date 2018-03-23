@@ -23,3 +23,10 @@ export const changeTitleAction=(title)=>{
         title
     }
 }
+
+export const changeAddrAction=(obj)=>{
+    return {
+        type:ActionTypes.STATIC_CHANGE_ADDR,
+        obj
+    }
+}

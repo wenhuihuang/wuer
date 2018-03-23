@@ -69,9 +69,10 @@ html,body,#app,.app-wrapper{
 }
 //弹出框
 .g-popup{
-  position: fixed;
+  position: absolute;
   left:0;
   right:0;
+  height:100%;
   background:rgba(0,0,0, .34);
   display: none;
   

@@ -11,7 +11,7 @@ class Search extends React.Component{
                 <div className="search-type" >
                     <span className="type" value={this.props.searchObj.type_code}>{this.props.searchObj.type_text}</span>
                     <i className="dowm-arrows pointer-events-none"></i>
-                    <div className={this.props.globalReducer.popup.isShow?"type-select show":"type-select"}>
+                    <div className={this.props.globalReducer.popup.isShow&&this.props.globalReducer.popup.type=="search"?"type-select show":"type-select"}>
                         <span className="option" value="0">招聘</span>
                         <span className="option" value="1">培训</span>
                         <span className="option" value="2">资讯</span>

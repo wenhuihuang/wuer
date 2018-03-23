@@ -30,7 +30,7 @@ class ResumeDetailContainer extends React.Component{
     render(){
         const detail = this.props.jobReducer.jobDetail
         return(
-            <div className="job-detail">
+            <div className="job-detail inner-body">
                <div className="detail-head">
                     <div className="item"><span className="font-icon">聘</span><span>{detail.title}</span></div>
                     <div className="item">
