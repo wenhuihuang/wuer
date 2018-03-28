@@ -1,0 +1,42 @@
+@import './comm';
+.clearfix {
+    &:after {
+      display: block;
+      content: '';
+      clear: both;
+      height: 0;
+      visibility: hidden;
+    }
+  }
+html,body,#app,.app-wrapper{
+    height:100%;
+  }
+  .app-wrapper{
+    position: relative;
+    overflow: auto;
+  }
+  //弹出框
+  .g-popup{
+    position: absolute;
+    left:0;
+    right:0;
+    height:100%;
+    background:rgba(0,0,0, .34);
+    display: none;
+    
+  }
+  .pointer-events-none{
+    pointer-events: none;
+  }
+  .red{
+    color:#ff6666 !important;
+  }
+  .footer{
+      background:#666666;
+      color:#fff;
+      height:px2rem(80);
+      display:flex;
+      align-items:center;
+      justify-content: center;
+      @include font-dpr(13px);
+  }

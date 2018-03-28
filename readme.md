@@ -43,8 +43,9 @@
              type
              actions
          reducers
-     API:
-         对Fetch接口进行封装、操作
+     api:
+         api:对Fetch接口进行封装、操作
+         url:所有请求类型和api
          
 
 

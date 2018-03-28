@@ -39,15 +39,7 @@ $green-color:#56bb37;
   }
 }
 
-.clearfix {
-  &:after {
-    display: block;
-    content: '';
-    clear: both;
-    height: 0;
-    visibility: hidden;
-  }
-}
+
 
 @mixin icon($w, $h, $url) {
   display: block;
@@ -55,28 +47,8 @@ $green-color:#56bb37;
   height: px2rem($h);
   margin: auto;
   background: url($url) no-repeat center center;
-  background-size: 100%;
+  background-size: auto 100%;
 }
 @mixin border-dashed($path){
   background: url($path) center center repeat;
-}
-html,body,#app,.app-wrapper{
-  height:100%;
-}
-.app-wrapper{
-  position: relative;
-  overflow: auto;
-}
-//弹出框
-.g-popup{
-  position: absolute;
-  left:0;
-  right:0;
-  height:100%;
-  background:rgba(0,0,0, .34);
-  display: none;
-  
-}
-.pointer-events-none{
-  pointer-events: none;
 }

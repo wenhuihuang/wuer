@@ -2,35 +2,33 @@ import * as ActionTypes from '../actions/ActionTypes'
 import {Success,Failure} from '../../../global/tools'
 
 
-export default function homeReducer(state={list:[],news:[],todos:[]},action){
-    console.log(action)
+export default function homeReducer(state={list:[],topJob:[],news:[],todos:[],personList:[]},action){
     switch (action.type){
-        //请求成功
+        //请求成功(这个暂时不用)
         case Success(ActionTypes.FETCH_HOTJOB):
             return Object.assign({},{
                 ...state,
                 list:state.list.concat(action.list)
             })
+        //全站首页职位
+        case Success(ActionTypes.FETCH_TOPJOB):
+            return Object.assign({},{
+                ...state,
+                topJob:action.list
+            })
+        //全站首页资讯
         case Success(ActionTypes.FETCH_NEWS):
             return Object.assign({},{
                 ...state,
-                news:state.news.concat(action.list)
+                news:action.list
             })
-        //以下为测试数据
-        case ActionTypes.STATIC_ADD_TODO:
-            return Object.assign({},state,{
-                todos:[
-                    ...state.todos,
-                    action.text
-                ]
+            //全职首页推荐人才
+        case Success(ActionTypes.FETCH_PERSON_LIST):
+            return Object.assign({},{
+                ...state,
+                personList:action.list
             })
-        case Success(ActionTypes.FETCH_TODO):
-            return Object.assign({},state,{
-                todos:[
-                    ...state.todos,
-                    action.text
-                ]
-            })
+      
         default :
             return state;
     }

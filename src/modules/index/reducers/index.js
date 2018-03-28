@@ -40,7 +40,7 @@ export default function globalReducer(state = {
             })
         case ActionTypes.STATIC_CHANGE_ADDR://修改标题
             return Object.assign({},state,{
-                addr:action.obj
+                addr:Object.assign({},state.addr,action.obj)
         })
         default:
             return state;

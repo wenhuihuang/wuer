@@ -22,7 +22,7 @@ var config = {
         vendor:['react']
     },
 
-    devtool: 'eval-source-map',
+    devtool: 'source-map',
 
     //webpack打包输出路径
     output: {
@@ -44,7 +44,8 @@ var config = {
                         {
                             loader: 'css-loader',
                             options:{
-                                minimize: true //css压缩
+                                minimize: true, //css压缩
+                                sourceMap:true
                             }
                         }
                     ]
@@ -58,9 +59,16 @@ var config = {
                 use:[ {
                     loader: 'css-loader',
                     options:{
-                        minimize: true //css压缩
+                        minimize: true, //css压缩
+                        sourceMap:true
                     }
-                },'sass-loader'],
+                },{
+                    loader: 'sass-loader',
+                    options:{
+                        minimize: true, //css压缩
+                        sourceMap:true
+                    }
+                }],
                 fallback: 'style-loader',
                 })
             },
@@ -81,7 +89,17 @@ var config = {
         }),
         new ExtractTextPlugin(styleName),
         //抽取公共模块、当引用操作默认3次的、就抽出、这里的vendor配置了、react
-        new webpack.optimize.CommonsChunkPlugin({name:"vendor"})
+        new webpack.optimize.CommonsChunkPlugin({name:"vendor"}),
+        //配置了这个没有效果
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+              warnings: false,
+              drop_debugger: true,
+              drop_console: true,
+              pure_funcs: ['console.log']
+            },
+            sourceMap: false
+          })
     ]
 };
 

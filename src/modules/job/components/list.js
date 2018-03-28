@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 export default class List extends React.Component{
     render(){
+        const settings = this.props.settings
         return (
             <div className="job-list">
                 {
@@ -13,16 +14,22 @@ export default class List extends React.Component{
                                         <div className="p-middle">{item.company}</div>
                                     </div>
                                     <div className="list-right">
-                                        <div className="p-middle">{item.tiem}</div>
+                                        <div className="p-middle red">{item.tiem}</div>
                                         <div className="p-middle">{item.addr}</div>
                                         <div>
-                                            <a href="javascript:;" className="t-d-btn">投递</a>
+                                            {
+                                                settings&&!settings.noPutBtn&&<a href="javascript:;" className="t-d-btn">投递</a>
+                                            }
+                                            
                                         </div>
                                     </div>
                                 </div>
                     })
                 }
-                <div className="load-more">点击加载更多</div>
+                {
+                    settings&&!settings.noMore&&<div className="load-more">点击加载更多</div>
+                }
+                
             </div>
         )
     }

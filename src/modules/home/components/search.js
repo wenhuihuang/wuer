@@ -18,6 +18,7 @@ class Search extends React.Component{
                     </div>
                 </div>
                 <div className="search-key">
+                    <i className="search-icon" />
                     <input type="text" placeholder="请输入关键词" onInput={this.props.onInput} value={this.props.searchObj.keyword} />
                 </div>
                 <div className="search-btn" >

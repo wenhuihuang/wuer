@@ -7,6 +7,11 @@
   background:#fff;
   z-index: 12;
 }
+.logo{
+    background-image: url('../../../common/images/logo.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
 .title {
   // width: 100%;
   height: px2rem(94);
@@ -22,18 +27,18 @@
     @include font-dpr(13px);
   }
   .logo{
-    background-image: url('../../../common/images/logo.png');
-    background-size: 100%;
-    background-repeat: no-repeat;
+    
     width: px2rem(168);
     height: px2rem(69);
     margin-top: 15px;
     display: inline-block;
   }
   .title-addr{
-    flex:1.0;
+    flex:2.0;
     display: flex;
     justify-content: center;
+    height: 100%;
+    align-items: center;
     //选择地址
     .type-select{
       height:px2rem(400);
@@ -89,9 +94,9 @@
 }
 //头部菜单
 .navbar{
-  border-bottom: 1px solid #CCC;
+  // border-bottom: 1px solid #CCC;
   display:flex;
-  background:#eee;
+  background:#f4f4f4;
   li.nav-item{
     height: px2rem(68);
     margin: 0 20px;
@@ -112,6 +117,27 @@
         border-bottom:2px solid $green-color;
         box-sizing:border-box;
       }
+    }
+  }
+}
+.job-type{
+  flex:1.5;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  a{
+    display: flex;
+    padding:px2rem(15) 0;
+    justify-content: center;
+    text-align: center;
+    flex:0.8;
+    font-weight:bold;
+    margin:0 px2rem(5);
+    @include font-dpr(14px);
+    &.active{
+      color:$green-color;
+      border-bottom:2px solid $green-color;
     }
   }
 }

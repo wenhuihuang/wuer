@@ -1,0 +1,29 @@
+@import '../../common/style/comm';
+.content-404{
+    padding-top:px2rem(50);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .tips{
+        text-align: center;
+        margin-top:px2rem(30);
+        margin-bottom:px2rem(40);
+    }
+    .code{
+        text-align: center;
+        margin:0;
+    }
+    .back-btn{
+        display: flex;
+        background: #ff6666;
+        color:#fff;
+        width:60%;
+        margin:auto;
+        align-items:center;
+        justify-content: center;
+        padding:px2rem(25) 0;
+        @include font-dpr(14px);
+        border-radius: 4px;
+        text-decoration: none;
+    }
+}

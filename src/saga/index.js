@@ -15,6 +15,7 @@ import fetchHotJob from './hotJob'
 import fetchHomeNews from './homeNews'
 import * as Job from './job'
 import * as Resume from './resume'
+import * as Home from './home'
 
 import * as Condition from './condition'
 
@@ -43,7 +44,9 @@ function* watchFetchData() {
     //action 数组匹配、所有action type在数组中的action都会被监控
    yield takeEvery(FetchActions, fetchData);
    yield takeLatest(HomeActions.FETCH_HOTJOB, fetchHotJob);
-   yield takeLatest(HomeActions.FETCH_NEWS, fetchHomeNews);Condition
+   yield takeLatest(HomeActions.FETCH_NEWS, fetchHomeNews);
+   yield takeLatest(HomeActions.FETCH_TOPJOB, Home.fetchTopJob); //全职首页
+   yield takeLatest(HomeActions.FETCH_PERSON_LIST, Home.fetchPersonList); //全职推荐人才
    yield takeLatest(ConditionActions.FETCH_CLASSIFY, Condition.fetchClassify); //条件选择-分类
    yield takeLatest(ConditionActions.FETCH_MAJOR, Condition.fetchMajor); //条件选择-专业major
    yield takeLatest(ConditionActions.FETCH_PROVINCE, Condition.fetchProvince); //条件选择-省份
@@ -52,6 +55,7 @@ function* watchFetchData() {
    yield takeLatest(JobActions.FETCH_JOBDETAIL, Job.fetchJobDetail); //职位详情
    yield takeLatest(ResumeActions.FETCH_RESUMELIST, Resume.fetchResumeList); //简历列表
    yield takeLatest(ResumeActions.FETCH_RESUMEDETAIL, Resume.fetchResumeDetail); //职位详情
+   
    
  
 }

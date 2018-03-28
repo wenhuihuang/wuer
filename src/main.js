@@ -22,14 +22,20 @@ import { RoutesComponent } from './modules/router/index'
 import './common/style/normalize.scss'
 import './common/style/reset.scss'
 import './common/style/comm.scss'
+import './common/style/public.scss'
 //重新计算大小
 import './common/js/resetSize'
-const sagaMiddleware = createSagaMiddleware()
+
 const middleware = []
-if (process.env.NODE_ENV !== 'production') {
+//如果是开发环境
+if (process.env.NODE_ENV.trim() === 'development') {
     middleware.push(createLogger())
 
+}else{ //打包环境
+    //将console.log去除
+    console.log=function(){}
 }
+const sagaMiddleware = createSagaMiddleware()
 middleware.push(sagaMiddleware);
 //store
 const finalCreateStore = compose(

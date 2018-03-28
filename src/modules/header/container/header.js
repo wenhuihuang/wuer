@@ -61,27 +61,43 @@ AddrHandler(e){
         });
     }else if(className === 'option'){ //选择
         const value = target.getAttribute('value')
+        const type = target.getAttribute('type')
         const text = target.innerHTML;
-alert(text)
-        this.props.GlobalAction.changeAddrAction({
-            oneL:{
-                text:text,
-                value:value
-            },
-            twoL:{
-                text:text,
-                value:value
-            }
-        });
-        this.props.GlobalAction.changePopupAction({
-            isShow:false,
-            isClose:true,
-            style:{
-                top:0,
-                bottom:0,
-                display:'none'
-            }
-        });
+        let obj={};
+        if(type=="oneL"){
+            obj = {
+                "oneL":{
+                     "text":text,
+                     "value":value
+                 },
+                 "twoL":{
+                     "text":"",
+                     "value":""
+                 }
+                
+             }
+        }else if(type=="twoL"){
+            obj = {
+                 "twoL":{
+                     "text":text,
+                     "value":value
+                 }
+                
+             }
+            this.props.GlobalAction.changePopupAction({
+                isShow:false,
+                isClose:true,
+                style:{
+                    top:0,
+                    bottom:0,
+                    display:'none'
+                }
+            });
+        }
+
+        this.props.GlobalAction.changeAddrAction(obj);
+
+       
     }else if(className == 'search-btn'){ //搜索
         if(this.state.searchObj.keywork == null || this.state.searchObj.keywork ==""){
             alert('请输入关键词')

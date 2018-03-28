@@ -12,23 +12,23 @@ class Addr extends React.Component{
                 <i className="dowm-arrows pointer-events-none"></i>
                 <div className={this.props.globalReducer.popup.isShow && this.props.globalReducer.popup.type=="headerAddr"?"type-select show":"type-select"}>
                     <div className="addr-left">
-                        <span className="option" value="0">广西</span>
-                        <span className="option" value="1">北京</span>
-                        <span className="option" value="2">湖南</span>
-                        <span className="option" value="0">广西</span>
-                        <span className="option" value="1">北京</span>
-                        <span className="option" value="2">湖南</span>
-                        <span className="option" value="0">广西</span>
-                        <span className="option" value="1">北京</span>
-                        <span className="option" value="2">湖南</span>
-                        <span className="option" value="0">广西</span>
-                        <span className="option" value="1">北京</span>
-                        <span className="option" value="2">湖南</span>
+                        <span className="option" value="0" type="oneL">广东</span>
+                        <span className="option" value="1" type="oneL">北京</span>
+                        <span className="option" value="2" type="oneL">湖南</span>
+                        <span className="option" value="0" type="oneL">广西</span>
+                        <span className="option" value="1" type="oneL">北京</span>
+                        <span className="option" value="2" type="oneL">湖南</span>
+                        <span className="option" value="0" type="oneL">广西</span>
+                        <span className="option" value="1" type="oneL">北京</span>
+                        <span className="option" value="2" type="oneL">湖南</span>
+                        <span className="option" value="0" type="oneL">广西</span>
+                        <span className="option" value="1" type="oneL">北京</span>
+                        <span className="option" value="2" type="oneL">湖南</span>
                     </div>
                     <div className="addr-right">
-                        <span className="option" value="0">广西</span>
-                        <span className="option" value="1">北京</span>
-                        <span className="option" value="2">湖南</span>
+                        <span className="option" value="0" type="twoL">广州</span>
+                        <span className="option" value="1" type="twoL">东莞</span>
+                        <span className="option" value="2" type="twoL">深圳</span>
                     </div>
                 </div>
             </div>

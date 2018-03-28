@@ -8,7 +8,9 @@ import NotHeadRoute from './notHeadRoute'
 //组件
 import IndexComponent from '../index/container/index'
 // import HomeContainer from '../home/container/index' //旧版首页
-import HomeContainer from '../home/container/index2' //新版首页
+import HomeContainer from '../home/container/index2' //全站首页
+import JianContainer from '../home/container/jian' //兼职首页
+import QuanContainer from '../home/container/quan' //兼职首页
 import AboutContainer from '../about/container/index'
 import JobContainer from '../job/container/index'
 import JobDetailContainer from '../job/container/detail'
@@ -47,6 +49,8 @@ export const RoutesComponent = (
         <Switch>
             <Route exact path="/" component={HomeContainer}/>
             <Route path="/home" component={HomeContainer} />
+            <Route path="/jian" component={JianContainer} />
+            <Route path="/quan" component={QuanContainer} />
             <Route path="/about" component={AboutContainer} />
             {/* classify?/:major?/:province?/:city? */}
             <Route path="/job/:params?" component={JobContainer} />

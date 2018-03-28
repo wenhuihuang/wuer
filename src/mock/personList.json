@@ -1,0 +1,21 @@
+{
+    "code":200,
+    "data":[
+        {
+            "name":"张嘉敏",
+            "workYear":"8年工作经验",
+            "head":"mock/img/person_img.png",
+            "addr":"广东广州",
+            "education":"本科",
+            "job":"一级建筑师-市政工程师"
+        },
+        {
+            "name":"张敏",
+            "workYear":"8年工作经验",
+            "head":"mock/img/person_img.png",
+            "addr":"广东广州",
+            "education":"本科",
+            "job":"一级建筑师-市政工程师"
+        }
+    ]
+}

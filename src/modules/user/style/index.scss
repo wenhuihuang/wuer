@@ -1,98 +1,80 @@
 @import '../../../common/style/comm';
-//列表
-.list{
-    display:flex;
-    border-bottom:1px solid $color_c;
-    padding:px2rem(20) px2rem(16);
-    .list-left{
+.login-wrap{
+    padding:0 px2rem(80);
+}
+.userName-wrap{
+    border-bottom:1px solid #e7e7e7;
+    display: flex;
+    padding:px2rem(10);
+    .icon{
+        @include icon(30,34,'../../../common/images/user_icon.png');
+        margin-right:px2rem(20);
+        
+    }
+    input{
+        border:none;
+        display:block;
         flex:1.0;
+        padding-left:px2rem(20);
+        height:px2rem(60);
+        border-left:1px solid #e7e7e7;
     }
-    .list-right{
-        text-align:right;
-        width:px2rem(200);
+}
+.password-wrap{
+    border-bottom:1px solid #e7e7e7;
+    display: flex;
+    padding:px2rem(10);
+    margin-top:px2rem(20);
+    .icon{
+        @include icon(30,37,'../../../common/images/password_icon.png');
+        margin-right:px2rem(20);
     }
-    .p-max{
-        margin-bottom:px2rem(15);
-        a{
-            @include font-dpr(13px);
-            color:$color_0;
-            text-decoration: none;
-        }
+    input{
+        border:none;
+        display:block;
+        flex:1.0;
+        padding-left:px2rem(20);
+        height:px2rem(60);
+        border-left:1px solid #e7e7e7;
     }
-    .p-middle{
-        margin-bottom:px2rem(15);
-        color:$color_b;
-        a{
-            @include font-dpr(12px);
-            color:$color_b;
-            text-decoration: none;
-        }
-    }
-    .p-min{
-        margin-bottom:px2rem(15);
-        color:$color_b;
-        a{
-            @include font-dpr(12px);
-            color:$color_b;
-            text-decoration: none;
-        }
-    }
-    .t-d-btn{
-        display:inline-block;
-        border-radius:px2rem(6);
-        color:#fff;
-        background:red;
-        padding:px2rem(10) px2rem(20);
+}
+.submit-btn{
+    color:#fff;
+    background:$green-color;
+    display:block;
+    border:none;
+    text-align:center;
+    padding:px2rem(25) 0;
+    width:100%;
+    @include font-dpr(18);
+    letter-spacing: 8px;
+    margin-top:px2rem(20);
+    border-radius:4px;
+}
+.logo-link{
+    display: inline-block;
+}
+.logo-wrap{
+    text-align:center;
+    margin:px2rem(80) 0;
+}
+.bottom-function{
+    text-align:right;
+    padding:px2rem(20) 0;
+    a{
         text-decoration: none;
-        @include font-dpr(14px);
+        color:$color_b;
+        display:inline-block;
+        vertical-align: middle;
+        @include font-dpr(13px);
+    }
+    span{
+        color:$color_c;
+        display:inline-block;
+        vertical-align: middle;
+        margin:0 px2rem(20);
     }
 }
-.load-more{
-    height:px2rem(80);
-    display:flex;
-    align-items:center;
-    justify-content: center;
-}
-.detail-head{
-    padding:px2rem(15) px2rem(15) 0;
-    @include font-dpr(13px);
-    .item{
-        margin-bottom:px2rem(10);
-        display:flex;
-        align-items:center;
-        span{
-            display:block;
-        }
-        .font-icon{
-            color:#fff;
-            background:$green-color;
-            width:px2rem(50);
-            height:px2rem(50);
-            border-radius:50%;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            margin-right:px2rem(10);
-        }
-        .time{
-            margin-right:px2rem(15);
-        }
-    }
-}
-.detail-list{
-    padding:px2rem(15) px2rem(15) 0;
-    @include font-dpr(13px);
-    .row{
-        display:flex;
-        padding:px2rem(15) 0;
-        .label{
-            display: block;
-            color:$color_b;
-        }
-        .text-field{
-            display:block;
-            flex:1.0;
-            color:$color_c;
-        }
-    }
+.sub-wrap{
+    margin-top:px2rem(40);
 }
